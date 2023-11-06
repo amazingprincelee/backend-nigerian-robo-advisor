@@ -1,9 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import 'dotenv/config';
 
 const localPort = 3000;
 const app = express();  
+
+// Enable All CORS Requests for development purposes
+app.use(cors()); 
 
 mongoose.connect(`mongodb+srv://amazingprincelee:${process.env.ATAFRICA_DB_PASSWORD}@cluster0.uumprvv.mongodb.net/atAfricaDB`)
   .then(() => console.log('Connected!'));
